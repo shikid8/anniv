@@ -1,3 +1,191 @@
+/* Responsive & Stable Layout and Background */
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+html {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  width: 100vw;
+}
+body {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: transparent;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Layout utama responsif */
+.header, .main-flex, .memories, .footer-signature {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  transition: max-width 0.2s;
+}
+
+@media (max-width: 900px) {
+  .header, .main-flex, .memories, .footer-signature {
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .header, .main-flex, .memories, .footer-signature {
+    max-width: 480px !important;
+    width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: clamp(0.5rem, 2vw, 1rem) !important;
+    padding-right: clamp(0.5rem, 2vw, 1rem) !important;
+  }
+}
+
+.header {
+  text-align: center;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
+  background: rgba(255,255,255,0.10);
+  border-radius: clamp(1.2rem, 2vw, 2rem);
+  margin: clamp(1.5rem, 4vw, 2.5rem) auto clamp(1.5rem, 4vw, 2.5rem) auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.main-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  gap: clamp(1.2rem, 3vw, 2rem);
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.memories {
+  background: rgba(255,255,255,0.08);
+  border-radius: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem) 0 0;
+  padding: clamp(1.5rem, 4vw, 4rem) clamp(2vw, 6vw, 4rem);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 16px 64px rgba(0,0,0,0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.footer-signature {
+  width: 100%;
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  letter-spacing: 2px;
+  margin: clamp(2rem, 4vw, 3rem) 0 clamp(1.5rem, 3vw, 2.5rem) 0;
+  font-family: inherit;
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .header, .main-flex, .memories, .footer-signature {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .header, .main-flex, .memories, .footer-signature {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: clamp(0.5rem, 2vw, 1rem) !important;
+    padding-right: clamp(0.5rem, 2vw, 1rem) !important;
+  }
+  .header {
+    padding-top: clamp(1.2rem, 4vw, 2rem) !important;
+    padding-bottom: clamp(1.2rem, 4vw, 2rem) !important;
+    margin-top: clamp(1rem, 3vw, 1.5rem) !important;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem) !important;
+    max-width: 100vw !important;
+  }
+  .main-flex {
+    gap: clamp(1rem, 2vw, 1.5rem) !important;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem) !important;
+    padding: 0 clamp(0.5rem, 2vw, 1rem) !important;
+  }
+  .memories {
+    border-radius: 1.2rem 1.2rem 0 0;
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(0.5rem, 2vw, 1rem) !important;
+    margin-top: clamp(1rem, 2vw, 1.5rem) !important;
+  }
+  .footer-signature {
+    margin: clamp(1.2rem, 2vw, 1.5rem) 0 clamp(1rem, 2vw, 1.2rem) 0 !important;
+  }
+  body {
+    padding: 0 !important;
+    align-items: stretch !important;
+  }
+  .carousel-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (max-width: 600px) {
+  .header, .main-flex, .memories, .footer-signature {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: clamp(0.5rem, 2vw, 1rem) !important;
+    padding-right: clamp(0.5rem, 2vw, 1rem) !important;
+  }
+  .memories {
+    border-radius: 1.2rem 1.2rem 0 0;
+    padding: clamp(1rem, 2vw, 2rem) clamp(0.5rem, 2vw, 1rem) !important;
+  }
+  body {
+    padding: 0 !important;
+    align-items: stretch !important;
+  }
+  .carousel-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+/* Global box-sizing and overflow fix */
+html {
+  box-sizing: border-box;
+  width: 100vw;
+    padding: clamp(1.5rem, 4vw, 4rem) clamp(2vw, 6vw, 4rem);
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+    max-width: 900px;
+    width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 /* Footer signature */
 .footer-signature {
     width: 100vw;
@@ -10,6 +198,10 @@
     font-weight: 300;
 }
 /* Simplified modern responsive design */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 @media (max-width: 768px) {
     .main-flex {
         flex-direction: column;
@@ -101,9 +293,9 @@ body {
     text-align: center;
     padding: clamp(1rem, 3vw, 2rem);
     background: rgba(255,255,255,0.08);
-    border-radius: clamp(1rem, 2vw, 1.5rem);
-    margin: clamp(1rem, 3vw, 2rem) auto;
-    max-width: min(90vw, 500px);
+    border-radius: clamp(1.2rem, 2vw, 2rem);
+    margin: clamp(1.5rem, 4vw, 2.5rem) auto clamp(1.5rem, 4vw, 2.5rem) auto;
+    max-width: 600px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -164,9 +356,9 @@ body {
     align-items: center;
     justify-content: center;
     width: 100vw;
-    margin-bottom: clamp(1rem, 3vw, 2rem);
-    gap: 0;
-    padding: 0 1rem;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    gap: clamp(1.2rem, 3vw, 2rem);
+    padding: 0 clamp(1rem, 3vw, 2rem);
 }
 .side-anim {
     display: flex;
@@ -297,7 +489,8 @@ body {
     justify-content: center;
     height: clamp(250px, 40vw, 500px);
     padding: 0 clamp(0.5rem, 2vw, 1.5rem);
-    overflow: hidden;
+    overflow-x: visible;
+    overflow-y: visible;
 }
 .carousel-track {
     display: flex;

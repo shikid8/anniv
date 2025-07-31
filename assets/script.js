@@ -134,14 +134,19 @@ function renderCarousel() {
         div.appendChild(img);
         carouselTrack.appendChild(div);
     });
-    // Geser track agar foto aktif di tengah
+    // Geser track agar foto aktif di tengah dan tidak terpotong kanan
     const photoWidth = carouselTrack.querySelector('.carousel-photo')?.offsetWidth || (window.innerWidth < 600 ? 180 : 440);
     const gap = window.innerWidth < 600 ? 6 : 36;
     const containerWidth = carouselTrack.parentElement.offsetWidth;
     const offset = Math.floor(visibleCount/2);
-    // Hitung agar foto aktif benar-benar di tengah container
-    const totalWidth = (photoWidth + gap) * visibleCount;
-    const leftSpace = (containerWidth - photoWidth) / 2;
+    // Hitung total lebar semua foto yang tampil
+    const totalWidth = (photoWidth + gap) * visibleCount - gap;
+    // Pastikan track tidak keluar dari container kanan
+    let leftSpace = (containerWidth - photoWidth) / 2;
+    // Jika totalWidth > containerWidth, kurangi leftSpace agar kanan tidak terpotong
+    if (totalWidth > containerWidth) {
+        leftSpace = Math.max(0, containerWidth - totalWidth) / 2 + (photoWidth + gap) * offset;
+    }
     carouselTrack.style.transform = `translateX(${-offset * (photoWidth + gap) + leftSpace}px)`;
 }
 function showPrev() {
